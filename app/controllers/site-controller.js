@@ -3,15 +3,14 @@
 ///<reference path='../../typings/modules/es6-promise/index'/>
 ///<reference path='../../typings/globals/node/index'/>
 const base_controller_1 = require('../bases/base-controller');
-// import SiteService from '../services/site-service';
-// const siteService = new SiteService();
+const site_service_1 = require('../services/site-service');
+const siteService = new site_service_1.default();
 class SiteController extends base_controller_1.default {
     constructor() {
         super({
             urlParams: []
         });
         this.routerPath = '/';
-        // this.doThings = siteService.doThings.bind(siteService)
     }
     register() {
         this.createPath({
@@ -21,10 +20,7 @@ class SiteController extends base_controller_1.default {
             urlParams: [],
             queryParams: [],
             bodyParams: [],
-            callback: function () {
-                var comments = require('../../comments');
-                return Promise.resolve(comments);
-            }
+            callback: siteService.getComments
         });
         // this.createPath({
         //   type: "put",

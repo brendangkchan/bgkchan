@@ -9,7 +9,7 @@ return gulp.watch([
 
 gulp.task('watch-js', function() {
 return gulp.watch([
-    `./source/**/*.js`,
+    `./source/public/**/*.js`,
     '!gulpfile.babel.js'
   ], ['copy-files']);
 });

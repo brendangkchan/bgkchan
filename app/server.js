@@ -28,11 +28,6 @@ app.use(function (req, res, next) {
     res.setHeader('Cache-Control', 'no-cache');
     next();
 });
-// app.get('/api/comments', function(req, res) {
-//   var comments = require('../comments');
-//   console.log('get comments', comments);
-//   res.json(comments);
-// });
 const site_controller_1 = require('./controllers/site-controller');
 const siteController = new site_controller_1.default();
 try {

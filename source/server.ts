@@ -34,11 +34,6 @@ app.use(function(req, res, next) {
     next();
 });
 
-// app.get('/api/comments', function(req, res) {
-//   var comments = require('../comments');
-//   console.log('get comments', comments);
-//   res.json(comments);
-// });
 
 import SiteController from './controllers/site-controller';
 const siteController = new SiteController();

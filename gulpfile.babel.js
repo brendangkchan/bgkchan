@@ -5,25 +5,34 @@ const runSequence = require('gulp-run-sequence');
 requireDir('./gulp', {recurse: false});
 
 gulp.task('compile', function() {
+	process.env.IS_DEV = false;
 	runSequence(
 		'clean', 
-		'copy-files',
 		'styles',
 		'typings', 
 		'compile-ts'
 	);
 });
 
-gulp.task('dev', function() {
+gulp.task('dev:server', function() {
+	process.env.IS_DEV = true;
 	runSequence(
 		'clean', 
-		'copy-files',
 		'styles',
-		// 'typings', 
+		'copy-files',
+		'typings', 
 		'compile-ts',
+		'webpack',
 		'watch-styles',
-		'watch-ts',
 		'watch-js',
+		'watch-ts',
 		'nodemon'
+	);
+});
+
+gulp.task('dev:client', function() {
+	process.env.IS_DEV = true;
+	runSequence(
+		'webpack:watch'
 	);
 });
