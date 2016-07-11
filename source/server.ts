@@ -44,7 +44,7 @@ try {
   console.error(ex);
 }
 
-app.get(['/', '/another-page'], function(req, res) {
+app.get(['/', '/another-page', '/work'], function(req, res) {
   const ReactRouter = require('react-router');
   const match = ReactRouter.match;
   const RouterContext = React.createFactory(ReactRouter.RouterContext);

@@ -26741,12 +26741,14 @@
 	var Index = __webpack_require__(244);
 	var CommentBox = __webpack_require__(245);
 	var AnotherPage = __webpack_require__(243)();
+	var Work = __webpack_require__(247)();
 	
 	var routes = _react2.default.createElement(
 	  Route,
 	  { path: '/', component: Index },
 	  _react2.default.createElement(IndexRoute, { component: CommentBox }),
-	  _react2.default.createElement(Route, { path: 'another-page', component: AnotherPage })
+	  _react2.default.createElement(Route, { path: 'another-page', component: AnotherPage }),
+	  _react2.default.createElement(Route, { path: 'work', component: Work })
 	);
 	
 	module.exports = {
@@ -26820,22 +26822,6 @@
 						'div',
 						{ id: 'content' },
 						React.createElement(
-							'em',
-							null,
-							'React Server Tutorial: ',
-							React.createElement(
-								'a',
-								{ href: 'https://medium.com/@firasd/quick-start-tutorial-universal-react-with-server-side-rendering-76fe5363d6e', target: '_blank' },
-								'Tutorial'
-							),
-							' · ',
-							React.createElement(
-								'a',
-								{ href: 'https://github.com/firasd/react-server-tutorial/', target: '_blank' },
-								'Github'
-							)
-						),
-						React.createElement(
 							'ul',
 							null,
 							React.createElement(
@@ -26854,6 +26840,15 @@
 									Link,
 									{ to: '/another-page', activeStyle: { fontWeight: 'bold' } },
 									'Another Page'
+								)
+							),
+							React.createElement(
+								'li',
+								null,
+								React.createElement(
+									Link,
+									{ to: '/work', activeStyle: { fontWeight: 'bold' } },
+									'Work'
 								)
 							)
 						),
@@ -28362,6 +28357,36 @@
 	}());
 	
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
+
+/***/ },
+/* 247 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var Work = function Work() {
+	  return _react2.default.createElement(
+	    'div',
+	    null,
+	    'My most recent work'
+	  );
+	};
+	
+	// const WorkOne = React.createClass({
+	//   render: function() {
+	//     return (<div>This is Another Page</div>)
+	//   }
+	// })
+	
+	module.exports = function () {
+	  return Work;
+	};
 
 /***/ }
 /******/ ]);

@@ -1,6 +1,5 @@
 "use strict";
 ///<reference path='../bases/Router-Options.ts'/>
-///<reference path='../../typings/modules/es6-promise/index'/>
 ///<reference path='../../typings/globals/node/index'/>
 const base_controller_1 = require('../bases/base-controller');
 const site_service_1 = require('../services/site-service');
@@ -22,15 +21,6 @@ class SiteController extends base_controller_1.default {
             bodyParams: [],
             callback: siteService.getComments
         });
-        // this.createPath({
-        //   type: "put",
-        //   path: '/doThings',
-        //   middleware: [managePermissions],
-        //   urlParams: ['site'],
-        //   queryParams: [],
-        //   bodyParams: ['jobs'],
-        //   callback: this.doThings
-        // });
         return this.router;
     }
 }
