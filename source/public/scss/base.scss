@@ -1,8 +1,12 @@
+@import 'https://fonts.googleapis.com/css?family=Fjalla+One|Source+Sans+Pro';
+
+$transition-time: 0.15s;
+$transition-time-fast: 0.15s;
+
 body {
   background: #fff;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
   font-size: 15px;
-  line-height: 1.7;
   margin: 0;
   padding: 30px;
 }
@@ -16,47 +20,68 @@ a:hover {
   text-decoration: underline;
 }
 
-code {
-  background-color: #f8f8f8;
-  border: 1px solid #ddd;
-  border-radius: 3px;
-  font-family: "Bitstream Vera Sans Mono", Consolas, Courier, monospace;
-  font-size: 12px;
-  margin: 0 2px;
-  padding: 0 5px;
+.menu {
+  width: 100%;
+  font-family: 'Fjalla One', sans-serif;
+  text-transform: uppercase;
+  font-size: 40px;
+  /*margin: 10px;*/
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+  }
+
+  li {
+    display: inline-block;
+    margin-right: 15px;
+  }
 }
 
-h1, h2, h3, h4 {
-  font-weight: bold;
-  margin: 0 0 15px;
-  padding: 0;
-}
+.image-thumb {
+  height: 200px;
+  position: relative;
 
-h1 {
-  border-bottom: 1px solid #ddd;
-  font-size: 2.5em;
-  font-weight: bold;
-  margin: 0 0 15px;
-  padding: 0;
-}
+  .overlay {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    color: white;
+    background: rgba(0, 0, 0, 0.7);
 
-h2 {
-  border-bottom: 1px solid #eee;
-  font-size: 2em;
-}
+    -webkit-transition: ease-in-out $transition-time;
+    -moz-transition: ease-in-out $transition-time;
+    -o-transition: ease-in-out $transition-time;
+    transition: ease-in-out $transition-time;
 
-h3 {
-  font-size: 1.5em;
-}
+    &:hover {
+      background: rgba(0, 0, 0, 0.5);      
 
-h4 {
-  font-size: 1.2em;
-}
+      .text {
+        text-shadow: 1px 1px 7px black;
+      }
+    }
 
-p, ul {
-  margin: 15px 0;
-}
+    .text {
+      font-family: 'Fjalla One', sans-serif;
+      position: relative;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      text-shadow: none;
 
-ul {
-  padding-left: 30px;
+      -webkit-transition: ease-in-out $transition-time-fast;
+      -moz-transition: ease-in-out $transition-time-fast;
+      -o-transition: ease-in-out $transition-time-fast;
+      transition: ease-in-out $transition-time-fast;
+
+      .name {
+        text-transform: uppercase;
+        font-size: 30px;
+      }
+
+    }
+  }
 }

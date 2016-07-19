@@ -1,6 +1,7 @@
 var React = require('react');
 var connect = require('react-redux').connect;
 var Link = require('react-router').Link;
+const Menu = require('./components/menu')();
 
 var Index = React.createClass({
 
@@ -9,19 +10,18 @@ var Index = React.createClass({
 		<html>
 			<head>
 				<meta charSet="utf-8" />
-				<title>React Server Tutorial</title>
+				<title>BGKCHAN</title>
 				<link rel="stylesheet" href="css/base.css" />
+				<link rel="icon" 
+				      type="image/png" 
+				      href="./images/favicon.png"/>
 				<script dangerouslySetInnerHTML={{__html: this.props.initialState}} />
 			</head>
 			<body>
 				<div id="content">
-					<ul>
-						<li><Link to="/" activeStyle={{fontWeight: 'bold'}} onlyActiveOnIndex>Comments</Link></li>
-						<li><Link to="/another-page" activeStyle={{fontWeight: 'bold'}}>Another Page</Link></li>
-						<li><Link to="/work" activeStyle={{fontWeight: 'bold'}}>Work</Link></li>
-					</ul>
+					<Menu></Menu>
 					{this.props.children}
-					<p style={{marginTop: '4em', textAlign: 'center'}}>Made with &hearts; in 2016</p>
+					<p style={{marginTop: '4em', textAlign: 'center'}}>© 2016 Brendan Chan. Valid HTML5.</p>
 				</div>
 
 
