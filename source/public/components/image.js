@@ -1,30 +1,27 @@
-import React from 'react';
+import React, { Component } from 'react';
 const IMAGE_PATH = '../images/';
 const IMAGE_EXT = '.png';
 
+class Image extends Component {
+	render () {
+		const { imageObj: image, onClick } = this.props
 
+		const imageStyle = {
+			background: `#eee url(${image.thumbUrl}) left bottom no-repeat`,
+			backgroundSize: 'cover'
+		}
 
-const Image = ({ imageObject }) => {
-	const imageURL = `${IMAGE_PATH}${imageObject.name}${IMAGE_EXT}`;
-	console.log(imageURL);
-	const imageStyle = {
-		background: `#eee url(${imageURL}) center center`,
-		backgroundSize: '110%'
+		return (
+	  	<div className='image-thumb' style={imageStyle} onClick={this.props.setImage.bind(null, image)}>
+	  		<div className='overlay'>
+	  			<div className='text'>
+	  				<div className='name'>{image.title}</div>
+	  				<div className='date'>{image.date}</div>
+					</div>
+	  		</div>
+	  	</div>
+		)
 	}
-
-  return (
-  	<div className='image-thumb' style={imageStyle}>
-  		<div className='overlay'>
-  			<div className='text'>
-  				<div className='name'>{imageObject.name.replace(/-/g, ' ')}</div>
-  				<div className='date'>{imageObject.date}</div>
-				</div>
-  		</div>
-
-  	</div>
-	)
 }
 
-module.exports = () => {
-	return Image;
-}
+export default Image

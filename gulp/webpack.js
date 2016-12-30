@@ -1,5 +1,6 @@
 const gulp = require('gulp');
 const webpack = require('gulp-webpack');
+const webpackOrig = require('webpack');
 // var Webpack_isomorphic_tools_plugin = require('webpack-isomorphic-tools/plugin')
  
 // var webpack_isomorphic_tools_plugin = 
@@ -47,11 +48,12 @@ gulp.task('webpack', function() {
             loader: 'babel-loader',
             exclude: /node_modules/,
             query: {
-              presets: ['react']
+              presets: ['react', 'es2015', 'stage-2']
             }
           },
         ]
-      }
+      },
+      plugins: [new webpackOrig.optimize.UglifyJsPlugin()]
     }))
     .pipe(gulp.dest('./app/public/scripts/'));
 });
@@ -71,7 +73,7 @@ gulp.task('webpack:watch', function() {
             loader: 'babel-loader',
             exclude: /node_modules/,
             query: {
-              presets: ['react']
+              presets: ['react', 'es2015', 'stage-2']
             }
           },
         ]

@@ -17,16 +17,6 @@ export default class SiteController extends BaseController {
   }
 
   register() {
-    this.createPath({
-      type: "get",
-      path: '/api/comments',
-      middleware: [],
-      urlParams: [],
-      queryParams: [],
-      bodyParams: [],
-      callback: siteService.getComments
-    });
-
     return this.router;
   }
 }

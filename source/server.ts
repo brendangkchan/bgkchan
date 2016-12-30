@@ -19,7 +19,7 @@ var React = require('react');
 var ReactDOMServer = require('react-dom/server');
 
 require('babel-register')({
-  presets: [ 'react', 'es2015' ]
+  presets: [ 'react', 'es2015', 'stage-2' ]
 });
 
 app.set('port', (process.env.PORT || 3000));
@@ -34,29 +34,28 @@ app.use(function(req, res, next) {
     next();
 });
 
+// import SiteController from './controllers/site-controller';
+// const siteController = new SiteController();
 
-import SiteController from './controllers/site-controller';
-const siteController = new SiteController();
+// try {
+//   app.use(siteController.routerPath, siteController.register());
+// } catch(ex) {
+//   console.error(ex);
+// }
 
-try {
-  app.use(siteController.routerPath, siteController.register());
-} catch(ex) {
-  console.error(ex);
-}
+var routes = ['/', '/shop', '/work', '/about', '/work/pablo', '/work/munny', '/work/chance', '/work/falling']
 
-app.get(['/', '/another-page', '/work'], function(req, res) {
+app.get(routes, function(req, res) {
   const ReactRouter = require('react-router');
   const match = ReactRouter.match;
   const RouterContext = React.createFactory(ReactRouter.RouterContext);
   const Provider = React.createFactory(require('react-redux').Provider);
   const routes = require('./public/routes.js').routes
   var store = require('./public/redux-store');
-  const comments = require('../comments');
 
   const initialState = {
-    data: comments,
-    url: "/api/comments",
-    pollInterval: 10000
+    image: null,
+    preloadedThumbnails: false
   }
 
   store = store.configureStore(initialState);

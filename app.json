@@ -1,10 +1,10 @@
 {
-  "name": "React Server Tutorial",
-  "description": "Code from the React tutorial, modified to add Server-Side Rendering, React Router, and Redux",
+  "name": "BGKCHAN",
+  "description": "BGKCHAN ART",
   "keywords": [ "react", "reactjs", "redux", "react router", "server side rendering", "universal", "isomorphic", "tutorial" ],
-  "repository": "https://github.com/firasd/react-server-tutorial",
-  "logo": "https://facebook.github.io/react/img/logo.svg",
-  "website": "https://github.com/firasd/react-redux-tutorial",
+  "repository": "https://github.com/brendangkchan/bgkchan",
+  "logo": "https://d2jk9tf9979qo8.cloudfront.net/signature-60.png",
+  "website": "https://bgkchan.com",
   "success_url": "/",
   "env" : {
     "BUILDPACK_URL": "https://github.com/heroku/heroku-buildpack-nodejs.git"
