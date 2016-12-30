@@ -1,2 +1,1 @@
-# bgkchan
-Personal art website
+# BGKHAN
