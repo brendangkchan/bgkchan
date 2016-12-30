@@ -23,7 +23,8 @@ gulp.task('compile', function() {
 		'clean', 
 		'styles',
 		'typings', 
-		'compile-ts'
+		'compile-ts',
+		'webpack'
 	);
 });
 
