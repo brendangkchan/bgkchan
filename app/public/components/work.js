@@ -4,6 +4,7 @@ import imageConfig from '../image-config'
 import Lightbox from './lightbox'
 import find from 'lodash.find'
 import get from 'lodash.get'
+import DocumentTitle from 'react-document-title'
 
 class Work extends Component {
 	componentDidMount () {
@@ -17,6 +18,7 @@ class Work extends Component {
 	render () {
 		return (
 	  	<div className='work_wrapper'>
+	  		<DocumentTitle title='Bgkchan Art | Work' />
 	  		<div className='work_images'>
 			  	{
 			  		imageConfig.map((image, index) => {
