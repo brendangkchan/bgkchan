@@ -3,10 +3,12 @@ import Menu from './menu'
 import HomeWork from './home-work'
 import FormControl from 'react-bootstrap/lib/FormControl'
 import Button from 'react-bootstrap/lib/Button'
+import DocumentTitle from 'react-document-title'
 
 const Shop = () => {
   return (
   	<div className='shop_wrapper'>
+  		<DocumentTitle title='Bgkchan Art | Shop' />
 			<div className='background' />
 			<div className='shop_content'>
 				<div className='coming-soon'>

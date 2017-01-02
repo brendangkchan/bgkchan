@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
 import find from 'lodash.find'
 import get from 'lodash.get'
+import capitalize from 'capitalize'
 import Image from './image'
 import imageConfig from '../image-config'
 import Lightbox from './lightbox'
 import ImageCarousel from './image-carousel'
 import ResponsiveEmbed from 'react-bootstrap/lib/ResponsiveEmbed'
+import DocumentTitle from 'react-document-title'
 
 class Piece extends Component {
 	constructor (props) {
@@ -55,6 +57,7 @@ class Piece extends Component {
 
 		return (
 	  	<div className='piece_wrapper'>
+	  		<DocumentTitle title={`Bgkchan Art | ${capitalize(image.title)}`} />
 	  		<div className='piece_image'>
 	  			<ImageCarousel image={image} onClick={this.setImage} />
   			</div>

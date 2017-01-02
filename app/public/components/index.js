@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
+import DocumentTitle from 'react-document-title';
 import Menu from './menu'
 import Footer from './footer'
 import get from 'lodash.get'
@@ -56,29 +57,29 @@ class Index extends Component {
      (child) => React.cloneElement(child, props))
 
 		return (
-		<html>
-			<head>
-				<meta charSet="utf-8" />
-				<title>BGKCHAN ART</title>
-				<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css" />
-				<link rel="stylesheet" href="../css/base.css" />
-				<link rel="icon" 
-				      type="image/png" 
-				      href="https://d2jk9tf9979qo8.cloudfront.net/signature-60.png"/>
-				<script dangerouslySetInnerHTML={{__html: this.props.initialState}} />
-			</head>
-			<body className={route}>
-				<div id="header">
-					<Menu />
-				</div>
-				<div id="container">
-					{ childrenWithProps }
-				</div>
-				<Footer />
-				{/* Un-comment script tag below to include bundle.js when using webpack */}
-				<script src="../scripts/bundle.js"></script>
-			</body>
-		</html>
+			<html>
+				<head>
+					<meta charSet="utf-8" />
+					<DocumentTitle title='Bgkchan Art | Home' />
+					<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css" />
+					<link rel="stylesheet" href="../css/base.css" />
+					<link rel="icon" 
+					      type="image/png" 
+					      href="https://d2jk9tf9979qo8.cloudfront.net/signature-60.png"/>
+					<script dangerouslySetInnerHTML={{__html: this.props.initialState}} />
+				</head>
+				<body className={route}>
+					<div id="header">
+						<Menu />
+					</div>
+					<div id="container">
+						{ childrenWithProps }
+					</div>
+					<Footer />
+					{/* Un-comment script tag below to include bundle.js when using webpack */}
+					<script src="../scripts/bundle.js"></script>
+				</body>
+			</html>
 		)
 	}
 }
