@@ -13,6 +13,7 @@ const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
+const sitemap = require('express-sitemap')();
 var React = require('react');
 var ReactDOMServer = require('react-dom/server');
 require('babel-register')({
@@ -34,7 +35,7 @@ app.use(function (req, res, next) {
 // } catch(ex) {
 //   console.error(ex);
 // }
-var routes = ['/', '/shop', '/work', '/about', '/work/pablo', '/work/munny', '/work/chance', '/work/falling'];
+var routes = ['/', '/shop', '/work', '/about', '/work/pablo', '/work/geo-munny', '/work/chance', '/work/falling'];
 app.get(routes, function (req, res) {
     const ReactRouter = require('react-router');
     const match = ReactRouter.match;
@@ -62,6 +63,11 @@ app.get(routes, function (req, res) {
             res.status(404).send('Not found');
         }
     });
+});
+sitemap.generate(app);
+app.get('/sitemap.xml', function (req, res) {
+    res.header('Content-Type', 'application/xml');
+    sitemap.XMLtoWeb(res);
 });
 app.listen(app.get('port'), function () {
     console.log('Server started: http://localhost:' + app.get('port') + '/');
