@@ -28,6 +28,14 @@ app.use(function (req, res, next) {
     res.setHeader('Cache-Control', 'no-cache');
     next();
 });
+app.use(function (req, res, next) {
+    if (req.url.slice(-1) == '/' && req.url.length > 1) {
+        res.redirect(301, req.url.slice(0, -1));
+    }
+    else {
+        next();
+    }
+});
 // import SiteController from './controllers/site-controller';
 // const siteController = new SiteController();
 // try {
