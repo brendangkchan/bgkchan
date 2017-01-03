@@ -1,5 +1,6 @@
 import React from 'react'
 import social from '../lib/social'
+import SignupForm from './signup-form'
 
 const Footer = () => {
 	const socialLinks = social.map((socialObj, index) => {
@@ -13,6 +14,10 @@ const Footer = () => {
 	return (
 		<div id='footer'>
 			<div className='footer_background' />
+			<div className='footer_newsletter'>
+				<h4 className='footer_newsletter-header'>Sign up for our newsletter for 5% off your first purchase!</h4>
+				<SignupForm />
+			</div>
 			<div className='footer_social'>
 				{ socialLinks }
 			</div>

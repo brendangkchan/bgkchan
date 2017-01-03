@@ -30122,6 +30122,10 @@
 	
 	var _social2 = _interopRequireDefault(_social);
 	
+	var _signupForm = __webpack_require__(422);
+	
+	var _signupForm2 = _interopRequireDefault(_signupForm);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var Footer = function Footer() {
@@ -30137,6 +30141,16 @@
 			'div',
 			{ id: 'footer' },
 			_react2.default.createElement('div', { className: 'footer_background' }),
+			_react2.default.createElement(
+				'div',
+				{ className: 'footer_newsletter' },
+				_react2.default.createElement(
+					'h4',
+					{ className: 'footer_newsletter-header' },
+					'Sign up for our newsletter for 5% off your first purchase!'
+				),
+				_react2.default.createElement(_signupForm2.default, null)
+			),
 			_react2.default.createElement(
 				'div',
 				{ className: 'footer_social' },
@@ -38445,7 +38459,7 @@
 					_react2.default.createElement(
 						'h3',
 						{ className: 'coming-soon_subheader' },
-						'subscribe to get exclusive updates on new art!'
+						'subscribe to get exclusive updates on new art and discounts'
 					)
 				),
 				_react2.default.createElement(_signupForm2.default, null)
