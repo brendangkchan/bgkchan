@@ -39,6 +39,35 @@ body {
   padding-bottom: $footer-height;
 }
 
+#mc_embed_signup {
+  background: none;
+  clear: left;
+  width: 100%;
+  font-family: $body-font;
+
+  #mc-embedded-subscribe {
+    font-size: $body-font-size;
+    height: 40px;
+    background-color: #0099CC;
+
+    &:hover {
+      background-color: #33b5e5;
+    }
+
+    @media #{$except-mobile} {
+      margin-left: 10px;
+    }
+
+    @media #{$mobile-only} {
+      margin-top: 5px;
+    }
+  }
+
+  #mce-EMAIL {
+    height: 40px;
+  }
+}
+
 .background {
   position: relative;
   width: 100%;
@@ -70,7 +99,7 @@ body {
   width: 100%;
   height: auto;
   text-align: center;
-  padding: 0px 0 70px 0;
+  padding: 0px 0 50px 0;
   font-size: $footer-font-size;
 
   .footer_background {
@@ -86,7 +115,7 @@ body {
   .footer_social {
     position: relative;
     margin-bottom: 30px;
-    padding-top: 50px;
+    padding-top: 40px;
     opacity: 1;
     z-index: 50;
 
@@ -94,12 +123,29 @@ body {
       margin-right: 1em;
 
       img {
-        width: 30px;
+        width: 35px;
+      }
+
+      :hover {
+        opacity: 0.8;
       }
 
       &:last-child {
         margin-right: 0;
       }
+    }
+  }
+
+  .footer_newsletter {
+    position: relative;
+    opacity: 1;
+    z-index: 10;
+    padding: 30px;
+    font-size: $body-font-size;
+
+    @media #{$mobile-only} {
+      padding-left: 20px;
+      padding-right: 20px;
     }
   }
 }
