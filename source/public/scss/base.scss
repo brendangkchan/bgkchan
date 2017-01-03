@@ -39,6 +39,31 @@ body {
   padding-bottom: $footer-height;
 }
 
+#mc_embed_signup {
+  background: none;
+  clear: left;
+  width: 100%;
+  font-family: $body-font;
+
+  #mc-embedded-subscribe {
+    font-size: $body-font-size;
+    height: 40px;
+    background-color: #0099CC;
+
+    &:hover {
+      background-color: #33b5e5;
+    }
+
+    @media #{$except-mobile} {
+      margin-left: 10px;
+    }
+  }
+
+  #mce-EMAIL {
+    height: 40px;
+  }
+}
+
 .background {
   position: relative;
   width: 100%;
