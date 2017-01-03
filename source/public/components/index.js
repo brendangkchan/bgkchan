@@ -60,6 +60,7 @@ class Index extends Component {
 			<html>
 				<head>
 					<meta charSet="utf-8" />
+					<meta name="viewport" content="width=device-width,initial-scale=1.0" />
 					<DocumentTitle title='Bgkchan Art | Home' />
 					<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css" />
 					<link rel="stylesheet" href="../css/base.css" />
