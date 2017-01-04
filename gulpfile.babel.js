@@ -22,6 +22,7 @@ gulp.task('compile', function() {
 	runSequence(
 		'clean', 
 		'styles',
+		'copy-files',
 		'typings', 
 		'compile-ts',
 		'webpack'
@@ -36,7 +37,7 @@ gulp.task('dev:server', function() {
 		'copy-files',
 		'typings', 
 		'compile-ts',
-		'webpack',
+		'dev:webpack',
 		'watch-styles',
 		'watch-js',
 		'watch-ts',

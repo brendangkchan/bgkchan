@@ -58,6 +58,29 @@ gulp.task('webpack', function() {
     .pipe(gulp.dest('./app/public/scripts/'));
 });
 
+gulp.task('dev:webpack', function() {
+  return gulp.src('./source/public/client.js')
+    .pipe(webpack({
+      output: {
+        filename: 'bundle.js',
+      },
+      devtool: '#source-map',
+      module: {
+        loaders: [
+          {
+            test: /.js?$/,
+            loader: 'babel-loader',
+            exclude: /node_modules/,
+            query: {
+              presets: ['react', 'es2015', 'stage-2']
+            }
+          },
+        ]
+      }
+    }))
+    .pipe(gulp.dest('./app/public/scripts/'));
+});
+
 gulp.task('webpack:watch', function() {
   return gulp.src('./source/public/client.js')
     .pipe(webpack({

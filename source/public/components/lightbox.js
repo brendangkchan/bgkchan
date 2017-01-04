@@ -29,6 +29,9 @@ class Lightbox extends Component {
 		  		{ textContent }
 		  	</div>
 			)
+			document.body.className += ' noscroll'
+		} else {
+			document.body.className = document.body.className.replace(/ noscroll/g, '')
 		}
 
 		return (
