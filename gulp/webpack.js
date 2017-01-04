@@ -1,7 +1,6 @@
 const gulp = require('gulp');
 const webpack = require('gulp-webpack');
 const webpackOrig = require('webpack');
-const gzip = require('gulp-gzip');
 // var Webpack_isomorphic_tools_plugin = require('webpack-isomorphic-tools/plugin')
  
 // var webpack_isomorphic_tools_plugin = 
@@ -59,7 +58,6 @@ gulp.task('webpack', function() {
         }
       })]
     }))
-    .pipe(gzip())
     .pipe(gulp.dest('./app/public/scripts/'));
 });
 
