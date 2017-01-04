@@ -1,7 +1,6 @@
 const gulp = require('gulp');
 const changed = require('gulp-changed');
 const plumber = require('gulp-plumber');
-const gzip = require('gulp-gzip');
 
 const sass = require('gulp-sass');
 const autoprefixer = require('gulp-autoprefixer');
@@ -29,7 +28,6 @@ gulp.task('styles', function () {
         .pipe(plumber())
         .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
         .pipe(autoprefixer())
-        .pipe(gzip())
         .pipe(gulp.dest(SCSS_BUILD_FOLDER));
 });
 
