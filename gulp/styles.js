@@ -11,7 +11,7 @@ const SCSS_SRC_FILES = `${SCSS_SRC_FOLDER}/**/*.scss`;
 const SCSS_SRC_FILE = `${SCSS_SRC_FOLDER}/base.scss`;
 const SCSS_BUILD_FOLDER = './app/public/css/';
 
-gulp.task('styles', function () {
+gulp.task('dev:styles', function () {
     return gulp.src(SCSS_SRC_FILE)
         .pipe(changed(SCSS_BUILD_FOLDER, {extension: '.scss'}))
         .pipe(plumber())
@@ -19,6 +19,15 @@ gulp.task('styles', function () {
         .pipe(sass({outputStyle: 'expanded'}).on('error', sass.logError))
         .pipe(autoprefixer())        
         .pipe(sourcemap.write())
+        .pipe(gulp.dest(SCSS_BUILD_FOLDER));
+});
+
+gulp.task('styles', function () {
+    return gulp.src(SCSS_SRC_FILE)
+        .pipe(changed(SCSS_BUILD_FOLDER, {extension: '.scss'}))
+        .pipe(plumber())
+        .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+        .pipe(autoprefixer())        
         .pipe(gulp.dest(SCSS_BUILD_FOLDER));
 });
 
