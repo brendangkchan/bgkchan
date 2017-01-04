@@ -4,6 +4,7 @@ import { Link } from 'react-router'
 import DocumentTitle from 'react-document-title';
 import Menu from './menu'
 import Footer from './footer'
+import GTM from './gtm'
 import get from 'lodash.get'
 import find from 'lodash.find'
 import { StickyContainer } from 'react-sticky'
@@ -80,6 +81,7 @@ class Index extends Component {
 					<Footer />
 					{/* Un-comment script tag below to include bundle.js when using webpack */}
 					<script src="../scripts/bundle.js"></script>
+					<GTM gtmId='GTM-MCFZLR2' />
 				</body>
 			</html>
 		)

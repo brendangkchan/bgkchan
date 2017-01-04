@@ -11,9 +11,18 @@ var routes = require('./routes').routes;
 var initialState = window.__INITIAL_STATE__;
 store = store.configureStore(initialState)
 
+var ReactGA = require('react-ga');
+ReactGA.initialize('UA-89800729-1');
+
 ReactDOM.render(
   <Provider store={store}>
   	<Router history={browserHistory} routes={routes} />
   </Provider>,
   document
 )
+
+browserHistory.listen(location => {
+	console.log('history update', location)
+ 	ReactGA.set({ page: window.location.pathname });
+  ReactGA.pageview(window.location.pathname);
+});
