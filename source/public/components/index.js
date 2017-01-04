@@ -57,6 +57,13 @@ class Index extends Component {
 		const childrenWithProps = React.Children.map(this.props.children,
      (child) => React.cloneElement(child, props))
 
+		let js = '../scripts/bundle.js'
+		let css = '../css/base.css'
+		if (process.env.NODE_ENV === 'production') {
+			js += '.gz'
+			css += '.gz'
+		}
+
 		return (
 			<html>
 				<head>
@@ -64,7 +71,7 @@ class Index extends Component {
 					<meta name="viewport" content="width=device-width,initial-scale=1.0" />
 					<DocumentTitle title='Bgkchan Art | Home' />
 					<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css" />
-					<link rel="stylesheet" href="../css/base.css" />
+					<link rel="stylesheet" href={css} />
 					<link rel="icon" 
 					      type="image/png" 
 					      href="https://d2jk9tf9979qo8.cloudfront.net/signature-60.png"/>
@@ -79,7 +86,7 @@ class Index extends Component {
 					</StickyContainer>
 					<Footer />
 					{/* Un-comment script tag below to include bundle.js when using webpack */}
-					<script src="../scripts/bundle.js"></script>
+					<script src={js}></script>
 				</body>
 			</html>
 		)
