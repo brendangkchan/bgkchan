@@ -6,6 +6,7 @@ import Menu from './menu'
 import Footer from './footer'
 import get from 'lodash.get'
 import find from 'lodash.find'
+import { StickyContainer } from 'react-sticky'
 import {
 	setImage,
 	markThumbnailsPreloaded
@@ -70,12 +71,12 @@ class Index extends Component {
 					<script dangerouslySetInnerHTML={{__html: this.props.initialState}} />
 				</head>
 				<body className={route}>
-					<div id="header">
+					<StickyContainer>
 						<Menu />
-					</div>
-					<div id="container">
-						{ childrenWithProps }
-					</div>
+						<div id="container">
+							{ childrenWithProps }
+						</div>
+					</StickyContainer>
 					<Footer />
 					{/* Un-comment script tag below to include bundle.js when using webpack */}
 					<script src="../scripts/bundle.js"></script>

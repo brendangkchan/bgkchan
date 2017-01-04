@@ -1,14 +1,12 @@
-import React from 'react';
-const Link = require('react-router').Link;
+import React, { Component } from 'react'
+import { Link } from 'react-router'
+import { Sticky } from 'react-sticky'
+import Glyphicon from 'react-bootstrap/lib/Glyphicon'
+import classnames from 'classnames'
 
 const LOGO_URL = 'https://d2jk9tf9979qo8.cloudfront.net/signature-60.png'
 
-const menuConfig = [
-{
-	name: 'Home',
-	url: '/'
-},
-{
+const menuConfig = [{
 	name: 'Work',
 	url: '/work'
 },
@@ -19,33 +17,61 @@ const menuConfig = [
 {
 	name: 'About',
 	url: '/about'
-}];
+}]
 
-const Menu = () => {
-	const links = menuConfig.map((menuItem, index) => {
-		const menuItemContent = menuItem.name === 'Home' ?
-			<img className='home-logo' src={LOGO_URL} /> :
-			menuItem.name
+class Menu extends Component {
+	constructor (props) {
+		super(props)
+		this.toggleOpen = this.toggleOpen.bind(this)
+		this.close = this.close.bind(this)
+		this.state = {
+			open: false
+		}
+	}
 
-		return (
-			<li key={index}>
-				<Link 
-					to={menuItem.url} 
-					className='menu-item'
-					activeStyle={{color: 'gray'}}>
-						{ menuItemContent }
-				</Link>
-			</li>
+	toggleOpen () {
+		this.setState({ open: !this.state.open })
+	}
+
+	close () {
+		this.setState({ open: false })
+	}
+
+	render () {
+		const links = menuConfig.map((menuItem, index) => {
+			return (
+				<li key={index}>
+					<Link 
+						to={menuItem.url} 
+						className='menu-item'
+						activeStyle={{color: 'gray'}}>
+							{ menuItem.name }
+					</Link>
+				</li>
+			)
+		})
+
+	  return (
+	  	<Sticky id='header-sticky'>
+		  	<div id='header'>
+			  	<div className={classnames('menu', { 'open': this.state.open })}>
+			  		<div className='header-row'>
+				  		<div className='home-logo'>
+				  			<img src={LOGO_URL} alt='bgkchan' />
+			  			</div>
+			  			<div className='mobile-hamburger-button' onClick={this.toggleOpen}>
+			  				<Glyphicon glyph='menu-hamburger' />
+			  			</div>
+		  			</div>
+		  			<div className='mobile-menu-overlay' onClick={this.close} />
+			  		<ul onClick={this.close}>
+				  		{ links }
+				  	</ul>
+			  	</div>
+		  	</div>
+	  	</Sticky>
 		)
-	})
-
-  return (
-  	<div className='menu'>
-  		<ul>
-	  		{ links }
-	  	</ul>
-  	</div>
-	)
+	}
 }
 
 export default Menu;
