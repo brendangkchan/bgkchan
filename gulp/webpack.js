@@ -40,7 +40,6 @@ gulp.task('webpack', function() {
       output: {
         filename: 'bundle.js',
       },
-      devtool: '#source-map',
       module: {
         loaders: [
           {
@@ -53,7 +52,11 @@ gulp.task('webpack', function() {
           },
         ]
       },
-      plugins: [new webpackOrig.optimize.UglifyJsPlugin()]
+      plugins: [new webpackOrig.optimize.UglifyJsPlugin({
+        compress: {
+          warnings: false // https://github.com/webpack/webpack/issues/1496
+        }
+      })]
     }))
     .pipe(gulp.dest('./app/public/scripts/'));
 });

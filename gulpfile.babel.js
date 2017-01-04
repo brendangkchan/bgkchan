@@ -33,7 +33,7 @@ gulp.task('dev:server', function() {
 	process.env.IS_DEV = true;
 	runSequence(
 		'clean', 
-		'styles',
+		'dev:styles',
 		'copy-files',
 		'typings', 
 		'compile-ts',
