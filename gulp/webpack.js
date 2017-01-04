@@ -59,7 +59,7 @@ gulp.task('webpack', function() {
         }
       })]
     }))
-    .pipe(gzip({ append: false }))
+    .pipe(gzip())
     .pipe(gulp.dest('./app/public/scripts/'));
 });
 

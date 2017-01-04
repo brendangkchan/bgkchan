@@ -29,7 +29,7 @@ gulp.task('styles', function () {
         .pipe(plumber())
         .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
         .pipe(autoprefixer())
-        .pipe(gzip({ append: false }))
+        .pipe(gzip())
         .pipe(gulp.dest(SCSS_BUILD_FOLDER));
 });
 
