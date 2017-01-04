@@ -94,6 +94,11 @@ app.get('/sitemap.xml', function(req, res) {
   sitemap.XMLtoWeb(res);
 })
 
+// Google Webmaster Verification
+app.get('/googleea1320be09e84ae7.html', function(req, res) {
+  res.sendFile(path.join(__dirname, 'public/googleea1320be09e84ae7.html'))
+})
+
 app.listen(app.get('port'), function() {
   console.log('Server started: http://localhost:' + app.get('port') + '/');
 });
