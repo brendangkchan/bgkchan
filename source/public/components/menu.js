@@ -57,7 +57,9 @@ class Menu extends Component {
 			  	<div className={classnames('menu', { 'open': this.state.open })}>
 			  		<div className='header-row'>
 				  		<div className='home-logo'>
-				  			<img src={LOGO_URL} alt='bgkchan' />
+				  			<Link to='/'>
+				  				<img src={LOGO_URL} alt='bgkchan' />
+			  				</Link>
 			  			</div>
 			  			<div className='mobile-hamburger-button' onClick={this.toggleOpen}>
 			  				<Glyphicon glyph='menu-hamburger' />

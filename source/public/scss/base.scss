@@ -41,6 +41,10 @@ body {
   padding-bottom: $footer-height;
 }
 
+.noscroll {
+  overflow: hidden;
+}
+
 #mc_embed_signup {
   background: none;
   clear: left;
