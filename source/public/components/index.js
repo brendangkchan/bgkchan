@@ -63,6 +63,8 @@ class Index extends Component {
 				<head>
 					<meta charSet="utf-8" />
 					<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+					<meta name="description" content="Street art inspired products created by San Francisco artist." />
+					<meta name="keywords" content="art, design, street art, graffiti, accessories, products, apparel, gallery" />
 					<DocumentTitle title='Bgkchan Art | Home' />
 					<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css" />
 					<link rel="stylesheet" href="../css/base.css" />
@@ -79,7 +81,6 @@ class Index extends Component {
 						</div>
 					</StickyContainer>
 					<Footer />
-					{/* Un-comment script tag below to include bundle.js when using webpack */}
 					<script src="../scripts/bundle.js"></script>
 					<GTM gtmId='GTM-MCFZLR2' />
 				</body>
