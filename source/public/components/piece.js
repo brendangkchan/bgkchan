@@ -67,12 +67,6 @@ class Piece extends Component {
 					<p className='piece_description'>{image.description}</p>
 				</div>
 				{ videoContent }
-				<Lightbox
-		  		key='work-lightbox'
-		  		imageOnly={true}
-		  		image={image}
-		  		featuredIndex={this.state.featuredIndex}
-		  		close={this.clearImage} />
 	  	</div>
 		)
 	}
