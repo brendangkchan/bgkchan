@@ -15,7 +15,7 @@ const Footer = () => {
 		<div id='footer'>
 			<div className='footer_background' />
 			<div className='footer_newsletter'>
-				<h4 className='footer_newsletter-header'>Sign up for our newsletter for 5% off your first purchase!</h4>
+				<h4 className='footer_newsletter-header'>Sign up for our newsletter for exclusive discounts and updates!</h4>
 				<SignupForm />
 			</div>
 			<div className='footer_social'>

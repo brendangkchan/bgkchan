@@ -19,7 +19,7 @@ class Shop extends Component {
 				<div className='shop_content'>
 					<div className='coming-soon'>
 						<h2 className='coming-soon_header'>Coming 2017</h2>
-						<h3 className='coming-soon_subheader'>subscribe to get exclusive updates on new art and discounts</h3>
+						<h3 className='coming-soon_subheader'>subscribe to get exclusive discounts and updates on new art products!</h3>
 					</div>
 					<SignupForm />
 		    </div>
