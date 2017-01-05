@@ -22,7 +22,6 @@ ReactDOM.render(
 )
 
 browserHistory.listen(location => {
-	console.log('history update', location)
  	ReactGA.set({ page: window.location.pathname });
   ReactGA.pageview(window.location.pathname);
 });
