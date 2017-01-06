@@ -10,7 +10,11 @@ import find from 'lodash.find'
 import { StickyContainer } from 'react-sticky'
 import {
 	setImage,
-	markThumbnailsPreloaded
+	markThumbnailsPreloaded,
+	fetchCart,
+	fetchAllProducts,
+	fetchProduct,
+	addProduct
 } from '../redux/action-creators'
 import imageConfig from '../image-config'
 
@@ -41,19 +45,22 @@ class Index extends Component {
 
 	componentDidMount () {
 		// Load the thumbnail for each piece on /work
-		if (!this.props.preloadedThumbnails) {
+		if (!this.props.images.preloadedThumbnails) {
 			imageConfig.map((imageObject) => {
 				let img = document.createElement('img');
 				img.src = imageObject.thumbUrl
 			})
-			markThumbnailsPreloaded(true)
+			this.props.markThumbnailsPreloaded(true)
+		}
+		if (this.getRoute() !== 'shop') {
+			this.props.fetchAllProducts()
 		}
 	}
 
 	render () {
 		const route = this.getRoute()
 		const props = Object.assign({}, this.props, this.state, {
-			image: this.props.image || this.state.urlImage
+			image: this.props.images.image || this.state.urlImage
 		})
 		const childrenWithProps = React.Children.map(this.props.children,
      (child) => React.cloneElement(child, props))
@@ -93,7 +100,8 @@ const IndexState = (state) => {
 	var stateJSON = JSON.stringify(state).replace(/<\/script/g, '<\\/script').replace(/<!--/g, '<\\!--');
 	return {
 		initialState: `window.__INITIAL_STATE__ = ${stateJSON}`,
-		image: state.image
+		images: state.images,
+		shopify: state.shopify
 	}
 }
 
@@ -101,5 +109,9 @@ export default connect(
 	IndexState
 ,{
 	setImage,
-	markThumbnailsPreloaded
+	markThumbnailsPreloaded,
+	fetchCart,
+	fetchAllProducts,
+	fetchProduct,
+	addProduct
 })(Index)

@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router'
 import { Sticky } from 'react-sticky'
-import Glyphicon from 'react-bootstrap/lib/Glyphicon'
 import classnames from 'classnames'
+import {  } from '../lib/shopify'
 
 const LOGO_URL = 'https://d2jk9tf9979qo8.cloudfront.net/signature-60.png'
 
@@ -56,13 +56,16 @@ class Menu extends Component {
 		  	<div id='header'>
 			  	<div className={classnames('menu', { 'open': this.state.open })}>
 			  		<div className='header-row'>
-				  		<div className='home-logo'>
+			  			<div className='menu-button mobile-button' onClick={this.toggleOpen}>
+			  				<img className='mobile-button-menu' src='https://d2jk9tf9979qo8.cloudfront.net/menu.png' />
+			  			</div>
+				  		<div className='home-logo' onClick={this.close}>
 				  			<Link to='/'>
 				  				<img src={LOGO_URL} alt='bgkchan' />
 			  				</Link>
 			  			</div>
-			  			<div className='mobile-hamburger-button' onClick={this.toggleOpen}>
-			  				<Glyphicon glyph='menu-hamburger' />
+			  			<div className='menu-button'>
+			  				<img className='menu-button-cart' src='https://d2jk9tf9979qo8.cloudfront.net/cart-empty.svg' />
 			  			</div>
 		  			</div>
 		  			<div className='mobile-menu-overlay' onClick={this.close} />

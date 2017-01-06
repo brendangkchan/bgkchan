@@ -63,8 +63,11 @@ app.get(routes, function(req, res) {
   var store = require('./public/redux-store');
 
   const initialState = {
-    image: null,
-    preloadedThumbnails: false
+    images: {
+      image: null,
+      preloadedThumbnails: false  
+    },
+    shopify: {}
   }
 
   store = store.configureStore(initialState);

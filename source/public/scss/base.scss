@@ -205,6 +205,17 @@ body {
     a:hover {
       text-decoration: underline;
     }
+
+    &-button {
+      line-height: $header-height;
+
+      &-cart {
+        width: 30px;
+        position: fixed;
+        right: 20px;
+        top: 24px;
+      }
+    }
   }
 
   @media #{$phone-only} {
@@ -214,11 +225,22 @@ body {
       box-shadow: none;
       -moz-box-shadow: none;
       -webkit-box-shadow: none;
+
+      &-button {
+        line-height: $mobile-header-height;
+
+        &-cart {
+          position: relative;
+          right: 20px;
+          top: 0;
+        }
+      }
     }
 
     .header-row {
       position: relative;
-      display: block;
+      display: flex;
+      justify-content: space-between;
       height: $mobile-header-height;
       width: 100%;
       z-index: 50;
@@ -228,10 +250,10 @@ body {
       -webkit-box-shadow: 0.05em 0.05em 0.1em 0.05em rgba(0, 0, 0, 0.2);
     }
 
-    .mobile-hamburger-button {
-      display: inline;
-      float: right;
+    .mobile-button {
+      display: block;
       cursor: pointer;
+      line-height: $mobile-header-height;
 
       .glyphicon-menu-hamburger {
         line-height: $mobile-header-height;
@@ -240,10 +262,11 @@ body {
     }
 
     .home-logo {
-      display: inline;
-      margin-right: 0;
-      padding-left: 15px;
-      float: left;
+      display: block;
+
+      img {
+        height: $mobile-header-height;
+      }
     }
 
     .menu {
@@ -562,9 +585,9 @@ body {
     position: relative;
     width: 100%;
     z-index: 20;
-    margin-top: 50px;
+    margin-top: 60px;
     margin-bottom: $margin-bottom-default;
-    padding: 0 20px;
+    padding: 0 30px;
   }
 
   .coming-soon {
@@ -601,6 +624,39 @@ body {
         width: 80%;
       }
     }
+  }
+
+  &_product-tiles {
+    display: block;
+    max-width: $max-desktop-content;
+    margin: auto;
+  }
+}
+
+.product-tile {
+  &_wrapper {
+    margin: auto;
+    text-align: center;
+    margin-bottom: 80px;
+  }
+
+  &_text {
+    padding-top: 20px;
+    text-align: center;
+  }
+
+  &_title {
+    font-family: $header-font;
+    font-size: calc(#{$header-font-size} * 0.8);
+  }
+
+  &_price {
+    font-size: calc(#{$header-font-size} * 0.6);
+  }
+
+  &_image {
+    max-height: 60vh;
+    max-width: 100%;
   }
 }
 
