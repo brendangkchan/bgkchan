@@ -38,6 +38,7 @@ I wanted to capture the album's uplifting and playful sound, but none of my sket
 Comic books. Coloring books. Chance the hometown hero. It just made sense. The final piece draws inspiration from from all these things while borrowing from the album cover's color scheme.`
 },
 {
+	hide: true,
 	title: "Falling",
 	date: "June 2016",
 	urls: [

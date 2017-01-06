@@ -22,6 +22,10 @@ class Work extends Component {
 	  		<div className='work_images'>
 			  	{
 			  		imageConfig.map((image, index) => {
+			  			if (image.hide) {
+			  				return false
+			  			}
+
 			  			return (
 			  				<Image
 			  					key={index}
