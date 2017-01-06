@@ -322,6 +322,25 @@ body {
   box-shadow: 0.05em 0.05em 0.3em 0.05em rgba(0,0,0,0.6);
 }
 
+.home {
+  &_work-button-container {
+    margin-bottom: 60px;
+  }
+
+  &_work-button {
+    color: $gray;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: underline;
+    font-size: $header-font-size;
+    font-family: $header-font;
+
+    &:hover {
+      color: #666;
+    }
+  }
+}
+
 .work {
   &_images {
     display: block;
