@@ -11,9 +11,6 @@ var routes = require('./routes').routes;
 var initialState = window.__INITIAL_STATE__;
 store = store.configureStore(initialState)
 
-var ReactGA = require('react-ga');
-ReactGA.initialize('UA-89800729-1');
-
 ReactDOM.render(
   <Provider store={store}>
   	<Router history={browserHistory} routes={routes} />
@@ -21,7 +18,12 @@ ReactDOM.render(
   document
 )
 
-browserHistory.listen(location => {
- 	ReactGA.set({ page: window.location.pathname });
-  ReactGA.pageview(window.location.pathname);
-});
+if (process.env.NODE_ENV === 'production') {
+	var ReactGA = require('react-ga');
+	ReactGA.initialize('UA-89800729-1');
+
+	browserHistory.listen(location => {
+	 	ReactGA.set({ page: window.location.pathname });
+	  ReactGA.pageview(window.location.pathname);
+	});
+}
