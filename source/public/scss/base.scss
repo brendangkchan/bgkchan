@@ -171,7 +171,7 @@ body {
     margin-right: 0.5em;
   }
 
-  .mobile-hamburger-button {
+  .mobile-button {
     display: none;
   }
 
@@ -255,9 +255,9 @@ body {
       cursor: pointer;
       line-height: $mobile-header-height;
 
-      .glyphicon-menu-hamburger {
-        line-height: $mobile-header-height;
-        right: 20px;
+      &-menu {
+        width: 25px;
+        margin-left: 20px;
       }
     }
 
