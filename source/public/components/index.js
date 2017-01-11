@@ -10,6 +10,7 @@ import find from 'lodash.find'
 import { StickyContainer } from 'react-sticky'
 import {
 	setImage,
+	setProduct,
 	markThumbnailsPreloaded,
 	fetchCart,
 	fetchAllProducts,
@@ -111,6 +112,7 @@ export default connect(
 	IndexState
 ,{
 	setImage,
+	setProduct,
 	markThumbnailsPreloaded,
 	fetchCart,
 	fetchAllProducts,

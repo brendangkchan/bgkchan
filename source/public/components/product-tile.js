@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 
-const ProductTile = ({ product }) => {
+const ProductTile = ({ product, setProduct }) => {
 	return (
-		<div className='product-tile_wrapper'>
+		<div className='product-tile_wrapper' onClick={setProduct.bind(null, product)}>
 			<div className='product-tile_image-wrapper'>
 				<img className='product-tile_image' src={product.images[0].src} alt={product.title} />	
 			</div>

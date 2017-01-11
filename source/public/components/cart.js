@@ -63,7 +63,7 @@ class Cart extends Component {
 					</div>
 				<div className='cart_checkout-button-container'>
 					<a href={cart.checkoutUrl}>
-						<Button size='large'>
+						<Button size='large' bsStyle="success">
 							Checkout
 						</Button>
 					</a>

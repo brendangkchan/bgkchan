@@ -25,7 +25,8 @@ class Shop extends Component {
 		}
 
 		const products = this.props.shopify.products
-			.map((product, index) => <ProductTile product={product} key={index} />)
+			.map((product, index) => 
+				<ProductTile product={product} key={index} setProduct={this.props.setProduct}/>)
 
 		return (
 	  	<div className='shop_wrapper'>

@@ -18,6 +18,16 @@ export function setImage (image) {
 	}
 }
 
+export function setProduct (product) {
+	return dispatch => {
+		browserHistory.push(`/shop/${product.title.toLowerCase().replace(/ /g, "-")}`);
+		dispatch({
+			type: actionTypes.SET_PRODUCT,
+			product
+		})
+	}
+}
+
 export function markThumbnailsPreloaded (status) {
 	return {
 		type: actionTypes.MARK_THUMBNAILS_PRELOADED,
