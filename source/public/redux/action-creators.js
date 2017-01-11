@@ -76,3 +76,16 @@ export function addProduct ({ cart, variant, quantity }) {
 			.catch(e => console.log(e))
 		}
 }
+
+export function updateLineItem ({ cart, lineItemId, quantity }) {
+	return dispatch => {
+		cart.updateLineItem(lineItemId, quantity)
+			.then((cart) => {
+  			dispatch({
+  				type: actionTypes.SET_CART,
+  				cart
+  			})
+			})
+			.catch(e => console.log(e))
+		}
+}

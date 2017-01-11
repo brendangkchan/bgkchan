@@ -14,7 +14,8 @@ import {
 	fetchCart,
 	fetchAllProducts,
 	fetchProduct,
-	addProduct
+	addProduct,
+	updateLineItem
 } from '../redux/action-creators'
 import imageConfig from '../image-config'
 
@@ -55,6 +56,7 @@ class Index extends Component {
 		if (this.getRoute() !== 'shop') {
 			this.props.fetchAllProducts()
 		}
+		this.props.fetchCart()
 	}
 
 	render () {
@@ -82,7 +84,7 @@ class Index extends Component {
 				</head>
 				<body className={route}>
 					<StickyContainer>
-						<Menu />
+						<Menu { ...props }/>
 						<div id="container">
 							{ childrenWithProps }
 						</div>
@@ -113,5 +115,6 @@ export default connect(
 	fetchCart,
 	fetchAllProducts,
 	fetchProduct,
-	addProduct
+	addProduct,
+	updateLineItem
 })(Index)

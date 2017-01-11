@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router'
 import { Sticky } from 'react-sticky'
 import classnames from 'classnames'
-import {  } from '../lib/shopify'
+import Cart from './cart'
 
 const LOGO_URL = 'https://d2jk9tf9979qo8.cloudfront.net/signature-60.png'
 
@@ -22,19 +22,42 @@ const menuConfig = [{
 class Menu extends Component {
 	constructor (props) {
 		super(props)
-		this.toggleOpen = this.toggleOpen.bind(this)
-		this.close = this.close.bind(this)
+		this.toggleMenu = this.toggleMenu.bind(this)
+		this.closeMenuAndCart = this.closeMenuAndCart.bind(this)
+		this.toggleCart = this.toggleCart.bind(this)
 		this.state = {
-			open: false
+			open: false,
+			cartOpen: false
 		}
 	}
 
-	toggleOpen () {
-		this.setState({ open: !this.state.open })
+	toggleMenu () {
+		if (!this.state.open) {
+			this.setState({
+				open: true,
+				cartOpen: false
+			})
+		} else {
+			this.setState({ open: false })
+		}
 	}
 
-	close () {
-		this.setState({ open: false })
+	closeMenuAndCart () {
+		this.setState({
+			open: false,
+			cartOpen: false
+		})
+	}
+
+	toggleCart () {
+		if (!this.state.cartOpen) {
+			this.setState({
+				open: false,
+				cartOpen: true
+			})
+		} else {
+			this.setState({ cartOpen: false })
+		}
 	}
 
 	render () {
@@ -51,32 +74,40 @@ class Menu extends Component {
 			)
 		})
 
+		const cartProps = {
+			open: this.state.cartOpen,
+			...this.props
+		}
+
+		console.log('this.props', this.props)
+
 	  return (
 	  	<Sticky id='header-sticky'>
 		  	<div id='header'>
 			  	<div className={classnames('menu', { 'open': this.state.open })}>
 			  		<div className='header-row'>
-			  			<div className='menu-button mobile-button' onClick={this.toggleOpen}>
+			  			<div className='menu-button mobile-button' onClick={this.toggleMenu}>
 			  				<img className='mobile-button-menu' src='https://d2jk9tf9979qo8.cloudfront.net/menu.png' />
 			  			</div>
-				  		<div className='home-logo' onClick={this.close}>
+				  		<div className='home-logo' onClick={this.closeMenuAndCart}>
 				  			<Link to='/'>
 				  				<img src={LOGO_URL} alt='bgkchan' />
 			  				</Link>
 			  			</div>
-			  			<div className='menu-button'>
+			  			<div className='menu-button' onClick={this.toggleCart}>
 			  				<img className='menu-button-cart' src='https://d2jk9tf9979qo8.cloudfront.net/cart-empty.svg' />
 			  			</div>
 		  			</div>
-		  			<div className='mobile-menu-overlay' onClick={this.close} />
-			  		<ul onClick={this.close}>
+		  			<div className='mobile-menu-overlay' onClick={this.closeMenuAndCart} />
+			  		<ul onClick={this.closeMenuAndCart}>
 				  		{ links }
 				  	</ul>
 			  	</div>
 		  	</div>
+		  	<Cart { ...cartProps }/>
 	  	</Sticky>
 		)
 	}
 }
 
-export default Menu;
+export default Menu

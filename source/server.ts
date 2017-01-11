@@ -67,7 +67,11 @@ app.get(routes, function(req, res) {
       image: null,
       preloadedThumbnails: false  
     },
-    shopify: {}
+    shopify: {
+      product: null,
+      products: null,
+      cart: null
+    }
   }
 
   store = store.configureStore(initialState);
