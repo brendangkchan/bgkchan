@@ -23,17 +23,17 @@ class Cart extends Component {
 						<div className='cart_line-item-image-wrapper'>
 							<img className='cart_line-item-image' alt={ get(lineItem, 'title') } src={ get(lineItem, 'image.src') } />
 						</div>
-					</div>
-					<div className='cart_line-item-middle'>
-						<div className='cart_line-item-title'>
-							{ get(lineItem, 'title') }
-						</div>
-						<div className='cart_line-item-quantity'>
-							<Quantity
-								value={get(lineItem, 'quantity')}
-								increment={this.props.updateLineItem.bind(null, { cart, lineItemId: get(lineItem, 'id'), quantity: get(lineItem, 'quantity') + 1 })}
-								decrement={this.props.updateLineItem.bind(null, { cart, lineItemId: get(lineItem, 'id'), quantity: get(lineItem, 'quantity') - 1 })}
-								/>
+						<div className='cart_line-item-left-secondary'>
+							<div className='cart_line-item-title'>
+								{ get(lineItem, 'title') }
+							</div>
+							<div className='cart_line-item-quantity'>
+								<Quantity
+									value={get(lineItem, 'quantity')}
+									increment={this.props.updateLineItem.bind(null, { cart, lineItemId: get(lineItem, 'id'), quantity: get(lineItem, 'quantity') + 1 })}
+									decrement={this.props.updateLineItem.bind(null, { cart, lineItemId: get(lineItem, 'id'), quantity: get(lineItem, 'quantity') - 1 })}
+									/>
+							</div>
 						</div>
 					</div>
 					<div className='cart_line-item-right'>
