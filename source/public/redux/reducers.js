@@ -30,6 +30,10 @@ const shopify = (state = {}, action) => {
       return Object.assign(newState, { products: action.products })
     case actionTypes.SET_CART:
       return Object.assign(newState, { cart: action.cart })
+    case actionTypes.POPUP_CART:
+      return Object.assign(newState, { popupCart: true })
+    case actionTypes.POPUP_CART_COMPLETE:
+      return Object.assign(newState, { popupCart: false })
     default:
       return state
   }

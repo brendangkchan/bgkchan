@@ -74,12 +74,23 @@ export function fetchCart () {
 	}
 }
 
+export function popupCartComplete () {
+	return {
+		type: actionTypes.POPUP_CART_COMPLETE
+	}
+}
+
 export function addProduct ({ cart, variant, quantity }) {
 	return dispatch => {
 		cart.createLineItemsFromVariants({ variant, quantity })
 			.then((cart) => {
   			dispatch({
   				type: actionTypes.SET_CART,
+  				cart
+  			})
+
+  			dispatch({
+  				type: actionTypes.POPUP_CART,
   				cart
   			})
 			})

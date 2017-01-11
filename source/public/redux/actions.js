@@ -5,5 +5,7 @@ export default mirrorCreator([
   'MARK_THUMBNAILS_PRELOADED',
   'SET_PRODUCT',
   'SET_PRODUCTS',
-  'SET_CART'
+  'SET_CART',
+  'POPUP_CART',
+  'POPUP_CART_COMPLETE'
 ])

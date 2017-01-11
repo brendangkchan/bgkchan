@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router'
 import { Sticky } from 'react-sticky'
 import classnames from 'classnames'
+import get from 'lodash.get'
 import Cart from './cart'
 
 const LOGO_URL = 'https://d2jk9tf9979qo8.cloudfront.net/signature-60.png'
@@ -56,6 +57,18 @@ class Menu extends Component {
 				cartOpen: true
 			})
 		} else {
+			this.setState({ cartOpen: false })
+		}
+	}
+
+	componentWillReceiveProps (nextProps) {
+		if (!get(this.props, 'shopify.popupCart') &&
+				get(nextProps, 'shopify.popupCart')) {
+			this.setState({ cartOpen: true })
+			setTimeout(this.props.popupCartComplete, 2000)
+		} 
+		else if (get(this.props, 'shopify.popupCart') &&
+				!get(nextProps, 'shopify.popupCart')) {
 			this.setState({ cartOpen: false })
 		}
 	}

@@ -448,6 +448,7 @@ body {
         -moz-transition: ease-in-out $transition-time;
         -o-transition: ease-in-out $transition-time;
         transition: ease-in-out $transition-time;
+        border: none;
 
         &:hover {
           background: #7ab55c;
@@ -828,6 +829,7 @@ body {
       -moz-transition: ease-in-out $transition-time;
       -o-transition: ease-in-out $transition-time;
       transition: ease-in-out $transition-time;
+      border: none;
 
       &:hover {
         background: #7ab55c;

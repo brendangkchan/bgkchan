@@ -16,7 +16,8 @@ import {
 	fetchAllProducts,
 	fetchProduct,
 	addProduct,
-	updateLineItem
+	updateLineItem,
+	popupCartComplete
 } from '../redux/action-creators'
 import imageConfig from '../image-config'
 
@@ -118,5 +119,6 @@ export default connect(
 	fetchAllProducts,
 	fetchProduct,
 	addProduct,
-	updateLineItem
+	updateLineItem,
+	popupCartComplete
 })(Index)
