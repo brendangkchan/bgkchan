@@ -59,7 +59,7 @@ class Cart extends Component {
 					</div>
 				</div>
 				<div className='cart_buttom-subtext'>
-						Shipping and discount codes are added at checkout
+						Discount codes can be added during payment step of checkout
 					</div>
 				<div className='cart_checkout-button-container'>
 					<a href={cart.checkoutUrl}>

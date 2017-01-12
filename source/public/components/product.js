@@ -10,6 +10,14 @@ import Button from 'react-bootstrap/lib/Button'
 class Product extends Component {
 	constructor (props) {
 		super(props)
+		this.setFeaturedIndex = this.setFeaturedIndex.bind(this)
+		this.state = {
+			featuredIndex: 0
+		}
+	}
+
+	setFeaturedIndex (index) {
+		this.setState({ featuredIndex: index })
 	}
 
 	componentDidMount () {
@@ -23,31 +31,39 @@ class Product extends Component {
 		if (!product || !cart) {
 			return false
 		}
-		console.log('product', product)
-
-		// return (
-	 //  	<div className='product_wrapper'>
-	 //  		<DocumentTitle title={`Bgkchan Art | Shop ${capitalize(product.title)}`} />
-	 //  	</div>
-		// )
 
 		return (
 	  	<div className='product_wrapper'>
 	  		<DocumentTitle title={`Bgkchan Art | Shop ${capitalize(product.title)}`} />
 	  		<div className='product_image-wrapper'>
-					<img className='product_image' src={product.images[0].src} alt={ product.title } />	
+					<img className='product_image' src={product.images[this.state.featuredIndex].src} alt={product.title} />
+					<div className='product_image-thumbnails'>
+						{
+							product.images.map((image, index) =>
+								<img
+									className='product_image-thumbnail'
+									src={image.src}
+									alt={`${product.title} alternate image ${index}`}
+									key={index}
+									onClick={this.setFeaturedIndex.bind(null, index)}
+								/>
+							)
+						}
+					</div>
 				</div>
-				<div className='product_text-section product_mobile-title-section'>
-					<div className='product_title'>{ product.title }</div>
-					<div className='product_price'>{ `$${Math.round(product.variants[0].price)}` }</div>
-				</div>
-				<div className='product_text-section'>
-					<div className='product_description' dangerouslySetInnerHTML={{ __html: product.description }} />
-				</div>
-				<div className='product_add-button-container'>
-					<Button size='large' bsStyle="success" onClick={this.props.addProduct.bind(null, { cart, variant: product.variants[0], quantity: 1 })}>
-						Add to cart
-					</Button>
+				<div className='product_text-wrapper'>
+					<div className='product_text-section product_mobile-title-section'>
+						<h1 className='product_title'>{ product.title }</h1>
+						<div className='product_price'>{ `$${Math.round(product.variants[0].price)}` }</div>
+						<div className='product_add-button-container'>
+							<Button size='large' bsStyle="success" onClick={this.props.addProduct.bind(null, { cart, variant: product.variants[0], quantity: 1 })}>
+								Add to cart
+							</Button>
+						</div>
+					</div>
+					<div className='product_text-section product_description-wrapper'>
+						<div className='product_description' dangerouslySetInnerHTML={{ __html: product.description }} />
+					</div>
 				</div>
 	  	</div>
 		)

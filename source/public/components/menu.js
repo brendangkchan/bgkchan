@@ -92,6 +92,9 @@ class Menu extends Component {
 			...this.props
 		}
 
+		const cartEmpty = get(this.props, 'shopify.cart.lineItemCount') <= 0
+		console.log('cartEmpty', cartEmpty, get(this.props, 'shopify.cart.lineItemCount'))
+
 		console.log('this.props', this.props)
 
 	  return (
@@ -108,6 +111,7 @@ class Menu extends Component {
 			  				</Link>
 			  			</div>
 			  			<div className='menu-button' onClick={this.toggleCart}>
+			  				{ !cartEmpty && <div className='menu-cart-count'/> }
 			  				<img className='menu-button-cart' src='https://d2jk9tf9979qo8.cloudfront.net/cart-empty.svg' />
 			  			</div>
 		  			</div>
