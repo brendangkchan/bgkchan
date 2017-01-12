@@ -6,6 +6,7 @@ import Image from './image'
 import imageConfig from '../image-config'
 import DocumentTitle from 'react-document-title'
 import Button from 'react-bootstrap/lib/Button'
+import classnames from 'classnames'
 
 class Product extends Component {
 	constructor (props) {
@@ -41,7 +42,7 @@ class Product extends Component {
 						{
 							product.images.map((image, index) =>
 								<img
-									className='product_image-thumbnail'
+									className={classnames('product_image-thumbnail', { 'featured': index === this.state.featuredIndex })}
 									src={image.src}
 									alt={`${product.title} alternate image ${index}`}
 									key={index}
