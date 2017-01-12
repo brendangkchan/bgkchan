@@ -873,6 +873,7 @@ body {
 
   &_description {
     text-align: left;
+    padding-top: 20px;
 
     ul {
       padding-left: 20px;
@@ -946,7 +947,7 @@ body {
     }
 
     &_description {
-      padding-top: 20px;
+      padding-top: 0;
       padding-bottom: 0;
     }
 
