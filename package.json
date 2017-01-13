@@ -57,6 +57,7 @@
     "redux-logger": "^2.7.4",
     "redux-thunk": "^2.1.0",
     "require-dir": "^0.3.0",
+    "shopify-buy": "^0.5.4",
     "tslint": "^3.10.2",
     "webpack": "^1.13.1"
   },

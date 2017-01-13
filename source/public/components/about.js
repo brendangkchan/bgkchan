@@ -21,7 +21,7 @@ class About extends Component {
 					</div>
 					<div className='about_text'>
 						<p>Yo my name is Brendan aka bgkchan. I'm a 24 year old artist/designer/photographer from San Francisco.</p>
-						<p>My influences come mostly from illustration, geometric patterns, hip hop, and street art. I enjoy detais on everything from art to clothing hardware to industrial design.</p>
+						<p>My influences come mostly from illustration, geometric patterns, hip hop, and street art. I enjoy detais on everything from art to clothing to industrial design.</p>
 						<p>Exploring new cities is one of my favorite things to do, the vibe of the people, art, and buildings is unique in each one. My top cities visited are Tokyo and Chicagao, everything about those two was inspiring and impressive.</p>
 					</div>
 				</div>

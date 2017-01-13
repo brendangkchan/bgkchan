@@ -4,7 +4,6 @@ import get from 'lodash.get'
 import capitalize from 'capitalize'
 import Image from './image'
 import imageConfig from '../image-config'
-import Lightbox from './lightbox'
 import ImageCarousel from './image-carousel'
 import ResponsiveEmbed from 'react-bootstrap/lib/ResponsiveEmbed'
 import DocumentTitle from 'react-document-title'
@@ -61,6 +60,7 @@ class Piece extends Component {
 	  		<div className='piece_image'>
 	  			<ImageCarousel image={image} onClick={this.setImage} />
   			</div>
+  			<div id='product-component-55fd0d45bcb'></div>	
 	  		<div className='piece_text'>
 		  		<h3 className='piece_title'>{image.title}</h3>
 					<h4 className='piece_date'>{image.date}</h4>
