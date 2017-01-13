@@ -766,6 +766,14 @@ body {
     padding: 0 30px;
   }
 
+  .coming-soon_wrapper {
+    max-width: 600px;
+    position: relative;
+    z-index: 20;
+    padding: 50px 20px;
+    margin: auto;
+  }
+
   .coming-soon {
     font-family: $header-font;
     text-align: center;

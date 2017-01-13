@@ -26,11 +26,13 @@ class Shop extends Component {
 			return (
 				<div>
 					<div className='background' />
-					<div className='coming-soon'>
-						<h2 className='coming-soon_header'>Coming 2017</h2>
-						<h3 className='coming-soon_subheader'>subscribe to get exclusive discounts and updates on new art products!</h3>
+					<div className='coming-soon_wrapper'>
+						<div className='coming-soon'>
+							<h2 className='coming-soon_header'>Coming 2017</h2>
+							<h3 className='coming-soon_subheader'>subscribe to get exclusive discounts and updates on new art products!</h3>
+						</div>
+						<SignupForm />
 					</div>
-					<SignupForm />
 				</div>
 			)
 		}
