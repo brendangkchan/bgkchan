@@ -93,9 +93,6 @@ class Menu extends Component {
 		}
 
 		const cartEmpty = get(this.props, 'shopify.cart.lineItemCount') <= 0
-		console.log('cartEmpty', cartEmpty, get(this.props, 'shopify.cart.lineItemCount'))
-
-		console.log('this.props', this.props)
 
 	  return (
 	  	<Sticky id='header-sticky'>
