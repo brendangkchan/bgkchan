@@ -1,6 +1,7 @@
 import { browserHistory } from 'react-router'
 import ShopifyBuy from 'shopify-buy'
 import actionTypes from './actions'
+import * as Tracking from '../lib/tracking'
 
 const shopifyClient = ShopifyBuy.buildClient({
   domain: 'bgkchan-art.myshopify.com',
@@ -82,6 +83,14 @@ export function popupCartComplete () {
 
 export function addProduct ({ cart, variant, quantity }) {
 	return dispatch => {
+		Tracking.addToCart({
+			value: variant.price,
+			currency: 'USD',
+			contentName: variant.productTitle,
+			contentType: 'product',
+			contentIds: [variant.id]
+		})
+
 		cart.createLineItemsFromVariants({ variant, quantity })
 			.then((cart) => {
   			dispatch({
@@ -100,6 +109,8 @@ export function addProduct ({ cart, variant, quantity }) {
 
 export function updateLineItem ({ cart, lineItemId, quantity }) {
 	return dispatch => {
+		Tracking.updateCart({ quantity })
+
 		cart.updateLineItem(lineItemId, quantity)
 			.then((cart) => {
   			dispatch({

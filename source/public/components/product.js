@@ -7,6 +7,7 @@ import imageConfig from '../image-config'
 import DocumentTitle from 'react-document-title'
 import Button from 'react-bootstrap/lib/Button'
 import classnames from 'classnames'
+import * as Tracking from '../lib/tracking'
 
 class Product extends Component {
 	constructor (props) {
@@ -24,6 +25,17 @@ class Product extends Component {
 	componentDidMount () {
 		// scroll to top
 		document.body.scrollTop = document.documentElement.scrollTop = 0
+
+		// view content
+		const product = get(this.props, 'shopify.product')
+		const variant = product.variants[0]
+		Tracking.viewContent({
+			value: variant.price,
+			currency: 'USD',
+			contentName: variant.productTitle,
+			contentType: 'product',
+			contentIds: [variant.id]
+		})
 	}
 
 	render () {

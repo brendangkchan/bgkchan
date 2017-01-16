@@ -8,6 +8,8 @@ var browserHistory = require('react-router').browserHistory;
 var store = require('./redux-store');
 var routes = require('./routes').routes;
 
+var Tracking = require('./lib/tracking').pageView
+
 var initialState = window.__INITIAL_STATE__;
 store = store.configureStore(initialState)
 
@@ -25,5 +27,6 @@ if (process.env.NODE_ENV === 'production') {
 	browserHistory.listen(location => {
 	 	ReactGA.set({ page: window.location.pathname });
 	  ReactGA.pageview(window.location.pathname);
+	  pageView()
 	});
 }
