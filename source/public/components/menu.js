@@ -4,6 +4,7 @@ import { Sticky } from 'react-sticky'
 import classnames from 'classnames'
 import get from 'lodash.get'
 import Cart from './cart'
+import * as Tracking from '../lib/tracking'
 
 const LOGO_URL = 'https://d2jk9tf9979qo8.cloudfront.net/signature-60.png'
 
@@ -38,8 +39,10 @@ class Menu extends Component {
 				open: true,
 				cartOpen: false
 			})
+			Tracking.customEvent({ event: 'OpenMenu' })
 		} else {
 			this.setState({ open: false })
+			Tracking.customEvent({ event: 'CloseMenu' })
 		}
 	}
 
@@ -56,8 +59,10 @@ class Menu extends Component {
 				open: false,
 				cartOpen: true
 			})
+			Tracking.customEvent({ event: 'OpenCart' })
 		} else {
 			this.setState({ cartOpen: false })
+			Tracking.customEvent({ event: 'CloseCart' })
 		}
 	}
 

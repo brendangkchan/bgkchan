@@ -20,6 +20,7 @@ import {
 	popupCartComplete
 } from '../redux/action-creators'
 import imageConfig from '../image-config'
+import { initFB } from '../lib/fb'
 
 class Index extends Component {
 	constructor (props) {
@@ -59,6 +60,7 @@ class Index extends Component {
 			this.props.fetchAllProducts()
 		}
 		this.props.fetchCart()
+		initFB()
 	}
 
 	render () {

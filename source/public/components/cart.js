@@ -5,8 +5,34 @@ import classnames from 'classnames'
 import Button from 'react-bootstrap/lib/Button'
 import get from 'lodash.get'
 import Quantity from './quantity'
+import * as Tracking from '../lib/tracking'
 
 class Cart extends Component {
+	constructor (props) {
+		super(props)
+		this.checkout = this.checkout.bind(this)
+		this.trackCheckout = this.trackCheckout.bind(this)
+	}
+
+	checkout () {
+		const cart = get(this.props, 'shopify.cart')
+		this.trackCheckout()
+		window.open(cart.checkoutUrl, '_blank')
+	}
+
+	trackCheckout () {
+		const cart = get(this.props, 'shopify.cart')
+		if (cart) {
+			Tracking.initiateCheckout({
+				value: cart.subtotal,
+				currency: 'USD',
+				contentName: 'cart',
+				contentIds: cart.lineItems.map((item) => item.variant_id),
+				contentType: 'product',
+				numItems: cart.lineItemCount
+			})
+		}
+	}
 
 	render () {
 		const cart = get(this.props, 'shopify.cart')
@@ -62,11 +88,9 @@ class Cart extends Component {
 						Discount codes can be added during payment step of checkout
 					</div>
 				<div className='cart_checkout-button-container'>
-					<a href={cart.checkoutUrl}>
-						<Button size='large' bsStyle="success">
-							Checkout
-						</Button>
-					</a>
+					<Button size='large' bsStyle="success" onClick={this.checkout}>
+						Checkout
+					</Button>
 				</div>
 			</div>
 		)
