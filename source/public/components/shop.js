@@ -20,7 +20,8 @@ class Shop extends Component {
 	}
 	
 	render () {
-		if (!this.props.shopify.products) {
+		if (!this.props.shopify.products ||
+				(process.env && process.env.NODE_ENV === 'production')) {
 			return false
 		} else if (this.props.shopify.products.length === 0) {
 			return (
