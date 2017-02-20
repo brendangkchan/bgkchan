@@ -38,7 +38,6 @@ gulp.task('dev:server', function() {
 		'typings', 
 		'compile-ts',
 		'dev:webpack',
-		'watch-styles',
 		'watch-js',
 		'watch-ts',
 		'dev:nodemon'
@@ -48,6 +47,7 @@ gulp.task('dev:server', function() {
 gulp.task('dev:client', function() {
 	process.env.IS_DEV = true;
 	runSequence(
+		'watch-styles',
 		'webpack:watch'
 	);
 });

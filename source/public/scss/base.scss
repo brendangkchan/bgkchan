@@ -602,7 +602,6 @@ body {
   @media #{$except-mobile} {
     &_images {
       display: flex;
-      flex-flow: row wrap;
       justify-content: space-between;
       max-width: $max-desktop-content;
 
@@ -614,9 +613,9 @@ body {
         max-height: 345px;
 
         /* 3 images per row */
-        &:nth-last-child(3):first-child {
+      /*  &:nth-last-child(3):first-child {
           flex-basis: 100%;
-        }
+        }*/
       }
     }
   }

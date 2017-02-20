@@ -52,11 +52,16 @@ gulp.task('webpack', function() {
           },
         ]
       },
-      plugins: [new webpackOrig.optimize.UglifyJsPlugin({
-        compress: {
-          warnings: false // https://github.com/webpack/webpack/issues/1496
-        }
-      })]
+      plugins: [
+        new webpackOrig.optimize.UglifyJsPlugin({
+          compress: {
+            warnings: false // https://github.com/webpack/webpack/issues/1496
+          }
+        }),
+        new webpackOrig.ProvidePlugin({
+            'fetch': 'imports?this=>global!exports?global.fetch!whatwg-fetch'
+        })
+      ]
     }))
     .pipe(gulp.dest('./app/public/scripts/'));
 });
@@ -79,7 +84,15 @@ gulp.task('dev:webpack', function() {
             }
           },
         ]
-      }
+      },
+      plugins: [
+        new webpackOrig.DefinePlugin({
+          'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
+        }),
+        new webpackOrig.ProvidePlugin({
+            'fetch': 'imports?this=>global!exports?global.fetch!whatwg-fetch'
+        })
+      ]
     }))
     .pipe(gulp.dest('./app/public/scripts/'));
 });
@@ -103,7 +116,15 @@ gulp.task('webpack:watch', function() {
             }
           },
         ]
-      }
+      },
+      plugins: [
+        new webpackOrig.DefinePlugin({
+          'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
+        }),
+        new webpackOrig.ProvidePlugin({
+            'fetch': 'imports?this=>global!exports?global.fetch!whatwg-fetch'
+        })
+      ]
     }))
     .pipe(gulp.dest('./app/public/scripts/'));
 });
